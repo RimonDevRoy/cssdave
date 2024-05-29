@@ -1,0 +1,96 @@
+/*
+
+● background-color:
+Sets the background color of the selected element.
+
+● background:
+Sets a number of properties along with background color, taking the value for the latter at first.
+
+● color:
+Sets the font's color of the content of the selected element.
+
+● rgba(red_value, green_value, blue_value, alpha_channel)
+Sets the color in RGB format.
+
+● #xxxxxx
+Sets the color in hexadecimal format. It takes 0-9, A-F. The first two are for red and then green and then finally blue. If there are similar pairs then we can take only 1 from each and indicate the same color. For example, AA44CC --> A4C, but CD80CD --> Not shrinkable.
+Alpha channel could also be introduced here. And it goes like this: A0 -> A1 .... F8 -> F9
+
+● "coolors.co" is a random color generator website and it also checks contrast ratio.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body {
+    background-color: red;
+}
+
+p {
+    background: #ff0;
+}
+
+.hd {
+    background-color: green;
+}

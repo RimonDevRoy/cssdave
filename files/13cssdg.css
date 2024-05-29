@@ -1,0 +1,132 @@
+/*
+
+● Upon applying "display: flex" in the container,  the elements inside the container are considered flex items, and they have "flex-start" as default justify-content and align-items etc.
+
+
+● The default flex direction is left to right. The main axis is along the flex direction and same direction. The secondary axis is perpendicular to main axis and by default it is up to down. 
+main axis(left-right), secondary axis(up-down).
+main axis(right-left), secondary axis(up-down).
+main axis(up-down), secondary axis(left-right).
+main axis(down-up), secondary axis(left-right).
+
+
+● justify-content deals with main axis and align-items deals with seconday axis.
+
+
+● "flex-direction" can be changed.
+
+
+● 'flex-wrap' helps to set whether flexible items will be wrapped when overflowing situation comes.
+
+
+● flex-flow: flex-direction flex-wrap;
+
+
+● align-content behaves like justify-content in secondary axis. It is applicable when there are multiple items along its axis of control.
+
+/// Properties applicable to element ///
+
+● 'flex-basis' sets the initial main size of a flexible item,
+
+
+● 'flex-grow' sets how much a flexible item should grow over the remaining space after filling the flex-basis with respect to other elements. If an element has flex-grow of 2 and another one has 3, the one with 2 will grow 2/5 of the remaining space and the latter one will grow 3/5 of the remaining space, and remember that all this is after having a minimum of flex-basis. The values are relative to other element's values.
+
+
+● flex: flex-grow flex-shrink flex-basis;
+
+
+● "flex-shrink" sets the shrinking factor of one item with respect to the others. One with '3' will shrink 3/2 times of the ones with '2' 
+
+
+● 'order' sets the position of flexible elements within the container. Default is 0, and if we set order with positive value to any element it will start after all the non-ordered elements. This is respective to the flex-direction.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    min-height: 400px;
+    margin-inline: auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.box {
+    max-width: 100px;
+    max-height: 100px;
+    background-color: black;
+    color:white;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+.box:nth-child(2) {
+    order: 10;
+}
+
+.box:nth-child(4) {
+    order: 50;
+}
+
+.box:nth-child(6) {
+    order: -1;
+}

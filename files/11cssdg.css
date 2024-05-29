@@ -1,0 +1,120 @@
+/*
+
+● "column-count" splits the elements inside the container that has it applied. If the elements are of equal number of column-count, they are split symmetrically, but if it is not it will be spread unevenly at normal condition of webpage. But it can shrinked and made uneven. 
+
+
+● "column-width" sets the minimum width of each column, and it will make columns equal to the number of column-count if there is enough space.
+
+
+● columns: column-count column-width;
+
+
+● "column-rule" applies dividers to the columns.
+
+
+● Every column has margin by default as they are elements by themselves.
+
+
+● "column-gap" sets spacing between columns.
+
+
+● margin-collapse is by default applied, this overlaps big margin over the smaller one.
+
+
+● "break-inside" sets whether an element should break if adequate spacing is not available. It puts the element in either previous or next column within the screen range based on space availability.
+
+● "break-after" sets whether an element should break if adequate spacing is not available. It puts the element in next column of mulitple columns within the screen range based on space availability.
+
+● "break-before" sets whether an element should break if adequate spacing is not available. It puts the element in previous column of mulitple columns within the screen range based on space availability. It forces the browser to have multiple columns, so the fonts get shrinked to make multiple columns, which is a bad thing.
+
+
+● We can copy HTML code, CSS code for certain symbols from the webiste "unicode character table"
+
+
+● "column-span" spans the element to which it is applied through columns.
+
+
+● "white-space: nowrap;" makes the element to which it is applied unwrappable, that is, it will stay in one block unbroken, and won't go to next line.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 2rem;
+}
+
+.columns {
+  column-count: 5;
+  column-width: 250px;
+  column-rule: 20px double green;
+  column-gap: 2rem;
+}
+
+.columns p {
+  margin-top: 0;
+}
+
+.columns h2 {
+  margin-top: 0;
+  background-color: black;
+  color: white;
+  break-after: avoid;
+}
+
+.columns .quote {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  column-span: all;
+  /* If .columns were not applied, the specificity wouuld have been lesser. */
+  white-space: nowrap;
+}

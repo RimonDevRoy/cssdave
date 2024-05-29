@@ -1,0 +1,169 @@
+/*
+
+● "grid-auto-flow" sets the natural distribution style for grid items in either row or column. The number of row/column created is equal to the number of elements.
+
+
+● 'grid-template-columns/rows' sets the columns/rows with given width from whole available space.
+
+grid-template-columns: col1_width col2_width .... coln_width; creates 'n' columns with the given width for each.
+
+grid-template-rows: row1_width row2_width .... rown_width; creates 'n' rows with the given width for each.
+
+
+●
+repeat(n, value) = value value value,...; (n times).
+
+repeat(n, value1 value2 value3) = value1 value2 value3 value1 value2 value3,...; (n times).
+
+It is grid only function.
+
+● 'grid-auto-rows/columns' sets the width of each row/columns and the number of rows/columns made will be according to the available space and madeable grid items. 
+
+grid-auto-rows: minmax(100px, auto);
+This tries to get the highest available space distirbute it equally to the number of rows possible to be made.
+
+● minmax(min_val, max_val);
+This tries to set the value of each thing equal to max_val, but if enough space is not available, it will set as much as possible but won't go below the min_val. Whatever value is applicable is applied to all the elements.
+
+
+● "row/column-gap" it sets space between rows/columns.
+
+gap: row-gap column-gap;
+
+
+● "grid-row/column-start" it takes a value which is the name of line given by the user or 1,2.. by default. It makes the thing start at the line whose name/number is given.
+
+● "grid-row/column-end" it takes a value which is the name of line given by the user or 1,2.. by default. It makes the thing end at the line whose name/number is given. The lines are just before the numbered row/column.
+
+
+●  grid-row/column: start / end;
+
+
+● justify-content, align-content etc. can also be applied to container in grid display.
+
+place-content: align-content justify-content;
+
+place-content: (align-content+justify-content);
+
+● It is advisable to make columns equal to the number of areas horizontally to avoid calash.
+
+
+● "grid-template-areas" helps to set areas within the grid container.
+
+grid-template-areas:
+"area1 area1 area2"(first row)
+"area1 area1 area3"(second row)
+"area4 area4 area4"(third row)
+
+and so on. 
+
+
+● The grid lines can be named by the following way:
+
+grid-template-row/column: [name1] c/r_n1 [name2] c/r_n2 [name3] c/r_n3....;
+
+
+● Which grid item needs to fall into which grid areas has to be declared in the grid item's own ruleset.
+
+
+● The grid item that is given an area in the grid container will spread through the whole area.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: 75px auto 75px;
+  /* It specifies the width of the row side of the areas. 75px for 'hd', auto for 'mn+sb', 75px for 'ft'*/
+  grid-template-areas:
+    "hd hd hd hd hd hd hd hd hd"
+    "mn mn mn mn mn mn mn sb sb"
+    "ft ft ft ft ft ft ft ft ft";
+  /* gap: 0.5rem; */
+  /* It will apply between rows and columns only, not between areas. */
+  column-gap: 0.5rem;
+}
+
+.container {
+  display: grid;
+  max-height: 150px;
+  /* grid-auto-flow: column; */
+  /* grid-template-columns: repeat(2, 1fr 2fr); */
+  grid-template-columns: [fi]1fr [s]2fr [t]1fr [fo]2fr;
+  grid-auto-rows: minmax(100px, 200px);
+  grid-area: mn;
+}
+
+.box {
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.box:first-child {
+  background-color: green;
+  grid-column: fi / fo;
+}
+
+.el {
+  background-color: purple;
+  color: white;
+  display: grid;
+  place-content: center;
+}
+
+.header {
+  grid-area: hd;
+}
+
+.sidebar {
+  grid-area: sb;
+  background-color: blue;
+}
+
+.footer {
+  grid-area: ft;
+}

@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/*
+
+● Media queries allow to write different sets of CSS rules depending upon different conditions. Syntax::
+
+@media media_type and/or (condition: breakpoint) {
+    // CSS rules
+}
+
+media_type can be screen, print, speech, all etc. screen is the most commonly used one.
+
+and/or are logical operators that decide do we need all the given conditions.
+
+conditions are generally min-width, max-width, orientation(portrait, landscape etc.), min-aspect-ratio, prefers-color-scheme(dark, light etc.) etc.
+
+breakpoints are given in the .md file.
+
+● It is advisable to set rules for smaller device ranges before bigger ones to avoid turbulence later on.
+
+
+● If the previously declared styles are not overridden inside the media query, the previously delcared ones will be applied with the rest of the media queried ones.
+
+
+● markdown files can be previewed by pressing "ctrl+shift+v"
+
+
+● "radial-gradient" starts from the center and goes outwards.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+/* Big screen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', 'Roboto';
+    min-height: 100vh;
+    /* If it were not applied, the flex grow of 'main' did not have enough space to grow as its content only took little space and there was no extra space to grow. */
+    background: white;
+    background-image: radial-gradient(whitesmoke, gray);
+    display: flex;
+    flex-direction: column;
+}
+
+header, nav, main, footer {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 100%;
+    text-align: center;
+}
+
+header, footer {
+    position:sticky;
+    background-color: #1e293b;
+    color: whitesmoke;
+    /* header and footer will appear to in screen always because the min-height of body is set 100, and they belong to body */
+}
+
+header {
+    top: 0;
+}
+
+nav {
+    background-color: white;
+    color: black;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+}
+
+main {
+    /* flex-basis: 100px; */
+    flex-grow: 1;
+}
+
+footer {
+    bottom: 0;
+}
+
+/* The above styles will apply by default if no media query condition is met. */
+
+/* Small screen */
+@media screen and (min-width: 576px) {
+    body {
+        background-color: green;
+        background-image: radial-gradient(whitesmoke, green);
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+/* Medium screen */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: gold;
+        background-image: radial-gradient(whitesmoke, gold);
+    }
+}
+
+/* Large screen */
+@media screen and (min-width: 992px) {
+    body {
+        background-color: firebrick;
+        background-image: radial-gradient(whitesmoke, firebrick);
+    }
+}
+
+/* XL screen */
+@media screen and (min-width: 1200px) {
+    body {
+        background-color: rgb(150, 240, 190);
+        background-image: radial-gradient(whitesmoke, rgb(150, 240, 190));
+    }
+}
+
+/* Mobile landscape */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    body {
+        background-color:purple;
+        background-image: radial-gradient(whitesmoke, purple);
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        display: none;
+        /* Here, even though display is not set to none, as it was set in one of the earlier media queries it is not overridden yet. */
+    }
+}
+

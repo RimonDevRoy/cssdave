@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+
+● ':root {}' indicates the root of the document. Even html inherits declarations from this place.
+
+
+● A variable is declared in the following way:
+
+--var_name: value;
+
+To use a variable we need to write "var(var_name);" in place of the value taking spot.
+
+● It is a good practice to use variables if some value is needed to be used multiple times.
+
+
+● @media (prefers-color-scheme: dark) {
+  code
+}
+
+The above condition is according to theme of the device. If it is in dark mode, the following styles will apply.
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  /* It will cause the image to not overflow from its container */
+}
+
+/* UTILITY CLASSES */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* GENERAL STYLES */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ||| VARIABLES ||| */
+:root {
+  /* COLORS */
+  --BG-COLOR: #475569;
+  --ALT-COLOR: #1e2938;
+  --RADIAL-COLOR: whitesmoke;
+  --LIGHT-COLOR: whitesmoke;
+  --DARK-COLOR: black;
+
+  /* FONT */
+  --F-F: "Nunito", "Roboto";
+  --F-S-M: 1.5rem;
+  --F-S-XL: 3rem;
+
+  /* SQUARE */
+  --SQUARE-BGCOLOR: papayawhip;
+  --SQUARE-SIZE: max(150px, 20vw);
+
+  /* GENERAL */
+  --PADDING: 0.5rem;
+  --SHADOWS: 0 6px 5px -5px var(--DARK-COLOR);
+  /* It is must to specify the dark-color before box-shadows as it uses the former. */
+  --BORDERS: 2px solid var(--DARK-COLOR);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* The above condition is according to theme of the device. If it is in dark mode, the following styles will apply. */
+  :root {
+    --BG-COLOR: #black;
+    --ALT-COLOR: #333;
+    /* --RADIAL-COLOR: rgb(repeat(3, 217)); */
+    --RADIAL-COLOR: rgb(217, 217, 217);
+    --SQUARE-BGCOLOR: rgb(202, 174, 202);
+  }
+}
+
+/* GENERAL STYLES */
+body {
+  font: var(--F-S-M) var(--F-F);
+  min-height: 100vh;
+
+  background-color: var(--BG-COLOR);
+  background-image: radial-gradient(var(--RADIAL-COLOR), var(--BG-COLOR));
+  display: flex;
+  flex-direction: column;
+}
+
+header, nav, footer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: var(--ALT-COLOR);
+  color: var(--LIGHT-COLOR);
+  text-align: center;
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: var(--LIGHT-COLOR);
+  color: var(--DARK-COLOR);
+  padding: var(--PADDING);
+  border-bottom: var(--BORDERS);
+  box-shadow: var(--SHADOWS);
+}
+
+main {
+  /* flex-basis: 100px; */
+  flex-grow: 1;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: min(4vw, 15px);
+}
+
+footer {
+  bottom: 0;
+}
+
+/* FEATURES */
+
+.square-highlight {
+  --SQUARE-BGCOLOR: blue;
+  /* This overrides the variable only for this class and as the bgc for all squares are set as square-bgcolor, the updation here automatically makes it the color for the element of this class. */
+}
+
+.square {
+  background-color: var(--SQUARE-BGCOLOR);
+  width: var(--SQUARE-SIZE);
+  height: var(--SQUARE-SIZE);
+  border: var(--BORDERS);
+  border-radius: 15px;
+  display: grid;
+  place-content: center;
+  font-size: var(--F-S-XL);
+  box-shadow: var(--SHADOWS);
+}
+
+/* Small screen */
+@media screen and (min-width: 576px) {
+  body {
+    background-color: green;
+    background-image: radial-gradient(whitesmoke, green);
+  }
+}
+
+/* Medium screen */
+@media screen and (min-width: 768px) {
+  body {
+    background-color: gold;
+    background-image: radial-gradient(whitesmoke, gold);
+  }
+}
+
+/* Large screen */
+@media screen and (min-width: 992px) {
+  body {
+    background-color: white;
+    background-image: radial-gradient(aliceblue, white);
+  }
+}
+
+/* XL screen */
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: rgb(150, 240, 190);
+    background-image: radial-gradient(whitesmoke, rgb(150, 240, 190));
+  }
+}
+
+/* Mobile landscape */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+  body {
+    background-color: purple;
+    background-image: radial-gradient(whitesmoke, purple);
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    /* display: none; */
+    /* Here, even though display is not set to none, as it was set in one of the earlier media queries it is not overridden yet. */
+  }
+}

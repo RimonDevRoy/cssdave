@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+
+● box/text-shadows are applied from all directions of the box/text.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", "Roboto";
+  min-height: 100vh;
+}
+
+:root {
+  /* COLORS */
+  --HEADER-BGCOLOR: rgb(28, 27, 25);
+  --NAV-BGCOLOR: rgb(12, 12, 11);
+  --HEADER-COLOR: rgb(246, 242, 235);
+  --HEADER-SHADOW-COLOR: rgb(49, 49, 214);
+  --ASIDE-DIVIDER-COLOR: rgb(238, 229, 229);
+  --ASIDE-BGCOLOR: rgb(231, 116, 28);
+  --ASIDE-COLOR: white;
+  --ASIDE-HOVER-COLOR: rgb(240, 232, 232);
+
+  /* SIZES */
+  --PADDING-SM: 1rem;
+  --PADDING-L: 1.5rem;
+  --PADDING-XL: 3rem;
+
+  /* SHADOWS */
+}
+
+/* SECTION1 */
+
+.nav-display {
+  display: block;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+header .header-top {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--HEADER-BGCOLOR);
+  min-height: 20vh;
+}
+
+header {
+  box-shadow: 5px 5px 8px var(--HEADER-SHADOW-COLOR);
+}
+
+header h1 {
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  text-align: center;
+  padding: var(--PADDING-SM);
+  font-size: var(--PADDING-XL);
+}
+
+header h1::after,
+header h1::before {
+  content: " 🌮 ";
+}
+
+.menu-btn {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-icon {
+  transition: all 0.4s ease;
+}
+
+.menu-icon,
+.menu-icon::after,
+.menu-icon::before {
+  width: 46px;
+  height: 6px;
+  border-radius: 5px;
+  background-color: var(--HEADER-COLOR);
+  position: absolute;
+  /* transition: all 0.5s; */
+}
+
+.menu-icon::after,
+.menu-icon::before {
+  content: "";
+}
+
+.menu-btn .menu-icon::after {
+  transform: translate(-23px, 10px);
+}
+
+.menu-btn .menu-icon::before {
+  transform: translate(-23px, -10px);
+}
+
+header nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+header nav ul li {
+  list-style-type: none;
+  padding: var(--PADDING-SM);
+}
+
+header nav ul :is(li:nth-child(1):hover, li:nth-child(1):focus-within) {
+  transform: scale(1.2) rotateX(360deg);
+  transition: transform 0.4s ease;
+}
+
+header nav ul :is(li:nth-child(2):hover, li:nth-child(2):focus-within) {
+  transform: scale(1.2) rotateX(360deg);
+  transition: transform 0.4s ease;
+}
+
+header nav ul :is(li:nth-child(3):hover, li:nth-child(3):focus-within) {
+  transform: scale(1.2) rotateX(360deg);
+  transition: transform 0.4s ease;
+}
+
+header nav ul :is(li:nth-child(4):hover, li:nth-child(4):focus-within) {
+  transform: scale(1.2) rotateX(360deg);
+  transition: transform 0.4s ease;
+}
+
+header nav ul a {
+  font-weight: bold;
+  color: var(--HEADER-COLOR);
+  text-decoration: underline;
+}
+
+:is(.menu-btn:hover, .menu-icon:hover) .menu-icon {
+  background-color: transparent;
+  transform: rotate(180deg);
+}
+
+:is(.menu-btn:hover, .menu-icon:hover) .menu-icon::before {
+  transform: translateX(-50%) rotate(45deg);
+}
+
+:is(.menu-btn:hover, .menu-icon:hover) .menu-icon::after {
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+:is(.menu-btn:hover, .menu-icon:hover) nav {
+  display: block;
+}
+
+header nav {
+  background-color: var(--NAV-BGCOLOR);
+  padding: var(--PADDING-SM);
+  transform-origin: top center;
+}
+
+/* SECTION2 */
+/* 
+main #about {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: var(--PADDING-L);
+} */
+
+:is(#about h2) {
+  margin-top: calc(var(--PADDING-L) / 2);
+  margin-bottom: calc(var(--PADDING-L) / 4);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main #about {
+  width: 95%;
+  background-color: var(--ASIDE-BGCOLOR);
+  color: var(--ASIDE-COLOR);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-areas: "as ab ab" "as ab ab" "as ab ab";
+  border-radius: 15px 15px;
+}
+
+#about {
+  margin-top: var(--PADDING-SM);
+}
+
+#about .about-left {
+  grid-area: as;
+  display: flex;
+  flex-flow: column wrap;
+  padding: var(--PADDING-SM);
+  font-size: var(--PADDING-L);
+  line-height: 2;
+  text-align: center;
+  position: relative;
+}
+
+.about-left a {
+  text-decoration: none;
+  color: var(--ASIDE-COLOR);
+  transition-property: color, transform;
+  transition-duration: 0.3s, 0.3s;
+  transition-timing-function: ease;
+}
+
+.about-left a:hover {
+  transform: scale(1.2);
+  color: var(--ASIDE-HOVER-COLOR);
+}
+
+#about .about-left::after {
+  width: 5px;
+  height: 80%;
+  border-radius: 7.5px;
+  background-color: var(--ASIDE-DIVIDER-COLOR);
+  content: "";
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+}
+
+#about .about-right {
+  grid-area: ab;
+  display: flex;
+  flex-flow: column wrap;
+  padding: var(--PADDING-SM);
+  font-size: var(--PADDING-L);
+  line-height: 1.5;
+}
+
+.about-right h2 {
+  text-align: center;
+}
+
+.about-right p {
+  text-align: justify;
+}
+
+#about :is(h2, h3, .it) {
+  font-style: italic;
+}
+
+#about :is(h2, h3) {
+  text-transform: uppercase;
+}
+
+#menu {
+  display: flex;
+  flex-flow: column wrap;
+  width: 95%;
+}
+
+#menu h2 {
+  text-align: center;
+  font-weight: bolder;
+  font-size: var(--PADDING-XL);
+}
+
+#menu table,
+th,
+td,
+tr {
+  border: 3px solid black;
+  /* border-collapse: collapse; */
+  /* border-radius is not applicable if there is border-collapse */
+  padding: 0;
+  font-size: var(--PADDING-L);
+  text-align: center;
+  font-weight: bolder;
+}
+
+#menu table {
+  border-radius: 10px;
+}
+
+#menu thead th {
+  background-color: var(--ASIDE-DIVIDER-COLOR);
+}
+
+#menu th .tacos {
+  border-radius: 8px 0 0 0;
+}
+
+.price {
+  border-radius: 0 8px 0 0;
+}
+
+.chips {
+  border-radius: 0 0 8px 8px;
+  animation: col 1s ease infinite forwards;
+}
+
+@keyframes col {
+  0% {
+    background-color: rgb(196, 53, 53);
+  }
+  20% {
+    background-color: rgb(231, 171, 20);
+  }
+  40% {
+    background-color: rgb(63, 180, 24);
+  }
+  60% {
+    background-color: rgb(21, 178, 157);
+  }
+  80% {
+    background-color: rgb(15, 69, 161);
+  }
+  100% {
+    background-color: rgb(126, 10, 136);
+  }
+}
+
+#menu p a {
+  height: fit-content;
+  width: fit-content;
+  background-color: transparent;
+  position: fixed;
+  font-size: var(--PADDING-XL);
+  text-decoration: none;
+  bottom: 10px;
+  left: 5px;
+}
+
+footer {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  font-size: var(--PADDING-XL);
+}

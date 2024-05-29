@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+
+● BEM is a methodology to arrange CSS styles in a way. It stands for Block Element Modifier.
+
+
+● Block: These are the styles that are applied to elements as basic and primary styles. It is represented standalone. Example:
+
+.class {
+  code;
+}
+
+
+● Element: These are the elements that are styled and kept depending on some other element which are generally the blocks. For example: elements inside header are styled to be represented belonging to header. Example:
+
+.header__btn {
+  code;
+}
+
+.header__title {
+  code;
+}
+
+The nested structure is not required to be shown here. Just write the name of the main block and the dependent element.
+
+● Modifier: These are the styles that applied in extension to the block styles or element styles as further modifications and so on. Example:
+
+.class {
+  code;
+}
+
+.class--mod1 {
+  code;
+}
+
+.class--mod2 {
+  code;
+}
+
+So on.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --BG-COLOR: rgb(12, 205, 73);
+  --COLOR: rgba(114, 54, 108, 0.853);
+}
+
+body {
+  font-family: "Nunito", "Roboto";
+  min-height: 100vh;
+}
+
+/* ||| Blocks ||| */
+
+header {
+  min-height: 50vh;
+  background-color: black;
+}
+
+nav {
+  min-height: 80%;
+  background-color: greenyellow;
+}
+
+.btn {
+  background-color: var(--BG-COLOR);
+  color: var(--COLOR);
+}
+
+/* ||| Elements */
+
+.header__title__h1 {
+  background-color: magenta;
+}
+
+.header__nav {
+  background-color: magenta;
+}
+
+.header__btn {
+  background-color: magenta;
+}
+
+/* ||| Modifiers */
+/* The below ones are (Elements+Modifiers) as they are dependent on header's styling as well as modifications over Blocks and Elements. */
+
+.header__btn--secondary {
+  border: 2px solid black;
+}
+
+.header__btn--bg {
+  background-color: cadetblue;
+}
+
+.header__btn--font--lg {
+  font-size: 1.5rem;
+}

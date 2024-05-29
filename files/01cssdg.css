@@ -1,0 +1,150 @@
+/*
+
+● Element selector: All elements of that name will be selected.
+
+element_name {
+    property: property-value;
+    ...
+}
+
+● The children and grandchildren inherit the declarations of parent element's rulesets only in case of typography.
+
+
+● Class selector: All elements with that given class are selected.
+
+.class_name {
+    property: property-value;
+    ...
+}
+
+● ID selector: Selects the elements with the ID. It is not advised to be used in CSS.
+
+#id-name {
+    property: property-value;
+    ...
+}
+
+● Group selector: Selects all the elements given in the gorup. The elements could be mentioned in any form of class, id or any other thing.
+
+element1, element2,... {
+    property: property-value;
+    ...
+}
+
+● Nested child selector: Selects the child only if it is inside the predecessor. The elements of that same type are ignored if they are not inside the predecessor. Predecessor might or not be direct parent.
+
+predecessor_element element1 {
+    property: property-value;
+    ...
+}
+It selects only the element1's inside element.
+
+predecessor_element predecessor_element1 element2 {
+    property: property-value;
+    ...
+}
+It selects only the element2's inside element1 which are again inside element.
+
+● Universal selector: Selects everything.
+
+* {
+    property: property-value;
+    ...
+}
+
+
+● If no higher specificity is applied, the last ruleset of same element is applied and finalized.
+
+element {
+    property: property-value;
+    ...
+}
+
+element {
+    property: property-value;
+    ...
+} Finalized
+
+
+● If a ruleset is not being applied, we should inspect the element from dev tools and observe why rulesets are being overidden.
+
+
+● Form elements do not inherit anything from their parent even if it is related to typography.
+
+
+● Specificity:
+Inline styles > ID > Classes, pseudo-classes, attribute selectors > Elements and pseudo-elements
+
+● Start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute selector), add 1 for each element selector or pseudo-element.
+
+
+● If you use the !important rule, it will even override inline styles!
+
+element {
+    property: property-value !important;
+    ...
+}
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body .ws-table-all, .ws-table-all td, tr, th {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+h1 {
+    color: #fac;
+}
+
+p span {
+    background-color: #4a9;
+}
+
+.art {
+    background-color: red;
+}
+
+.art.art-2 {
+    background-color: yellow;
+}

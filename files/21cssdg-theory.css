@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,5 00;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+||| Transform |||
+
+● "transform" it transforms the condition of the element with the given property. The relative measurements are done according to viewport, dimension of element etc. depending on the units.
+
+
+● Negative measurements take elements to left and up.
+
+
+● translate(translateX, translateY);
+
+
+● rotateX makes the X-axis(horizontal to screen) the pivot of rotation, and the top part goes inwards to screen.
+
+
+● rotateY makes the Y-axis(vertical to screen) the pivot of rotation, and the left part goes towards right over the screen.
+
+
+● rotateZ makes the Z-axis(perpendicular to screen) the pivot of rotation, and the left part goes towards right clockwise.
+
+
+● The directions are based on positive values.
+
+
+● scaleX shrinks or grows the element along the X-axis. Values above 100% or original size makes the element grow.
+
+
+● scaleY shrinks or grows the element along the Y-axis. Values above 100% or original size makes the element grow.
+
+
+● scaleZ shrinks or grows the element along the Z-axis. Values above 100% or original size makes the element grow.
+
+
+● scale(scaleX, scaleY);
+
+● transform-origin: x-axis y-axis;
+Positive values go right and down.
+
+● skewX stretches the element's edges that come in X-axis direction with respect to the middle portion of the element along the X-axis.
+
+
+● skewY stretches the element's edges that come in Y-axis direction with respect to the middle portion of the element along the Y-axis.
+
+
+● skewZ stretches the element's edges that come in Z-axis direction with respect to the middle portion of the element along the Z-axis.
+
+
+● In skew the effects of measurements are reversed with the sign of values in comparison to other properties.
+
+
+● skew(skewX, skewY);
+
+● When an element is rotated before being translated, the translate direction is on the rotated axis after rotation is completed.
+
+● Also, consider making use of the 'prefers-reduced-motion' media feature — use it to write a media query that will turn off animations if the user has reduced animation specified in their system preferences.
+
+||| Transition |||
+
+● Transitions are basically shifting from one state to a different state; thus, we may put the transition declarations in the rulesets of pseudo-classes of selected elements. We can also declare all the transitions that are to be applied with transition effects in the main ruleset of an element in the transition properties, and just write the things in different pseudo-class rulesets in their respective places such as we put properties that are to be transitioned while hovering is put in the el:hover { bgc: red; }, el:visited { transform: translateX(); }, and transition-property: bgc, transform; is written in the el {} ruleset.
+
+● transition delays are before the start of transition, not between multiple transitions if applied.
+
+
+● In different states, the values of properties can also be changed and transitioned.
+
+
+● transition: transition-property transition-timing-function transition-duration transition-delay;
+
+
+● transition-timing-function sets the pace of transition throughout the transition.
+
+||| Animation |||
+
+● Animations start happening by themselves and the best way to make them happen by the user's wish is put a class to the animatable element and use JS to make a function to toggle the class on click.
+
+
+● They require keyframes to work. This is basically what would be the state of the animatable element on different phases of the animation. Syntax:
+
+@keyframes identifier {
+  0% { condition at 0% of animation }
+  25% { condition at 25% of animation }
+  46.89% { condition at 46.89% of animation }
+  95.457779315% { condition at 95.457779315% of animation }
+  x% { condition at x% of animation }
+  100% { condition at 100% of animation }
+}
+
+● The condition given at a phase is not respective to the previous phase, they are always from the original position.
+
+
+● animation-name: identifier;
+It is the name of the identifier given in the keyframes. This targets the particular keyframe.
+
+● animation-duration: Xs;
+It is the duration of a full animation through its keyframe.
+
+● animation-timing-function: value;
+It is the timing function, which basically sets the pace of animation at different stages of the animation. 
+
+● animation-delay: Xs;
+It is the delay before starting of animation. It does not apply between multiple animations if exists.
+
+● animation-iteration-count: X;
+It is the number of times the animation will be repeated upon completion.
+
+● animation-direction: alternate;
+It is the direction of the animation. 'alternate' will make it go 0->100% in first then 100->0% in second and so on. 'alternate-reverse' will do it in the opposite way.
+
+● animation-fill-mode: forwards;
+It is the declaration of whether the element's state will stay in the animation's at the end of animation.
+
+● animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode;
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+●
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1.5rem;
+}
+
+body {
+  font-family: "Nunito", "Roboto";
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  display: grid;
+  place-content: center;
+  /* Transition */
+  transition-property: background-color, transform;
+  transition-duration: 2s, 3s;
+  transition-delay: 0s;
+}
+
+div:nth-child(1) {
+  background-color: dodgerblue;
+  /* transform: translateX(-50%); */
+  /* transform: rotateX(80deg); */
+  /* transform: scaleX(50%); */
+  /* transform: skewX(-10deg); */
+}
+
+div:nth-child(2) {
+  background-color: yellow;
+  /* transform: translateY(-2rem); */
+  /* transform: rotateY(120deg); */
+  /* transform: scaleY(50%); */
+  /* transform: skewY(20deg); */
+}
+
+div:last-child {
+  background-color: limegreen;
+  /* transform: translate(100%, -2rem); */
+  /* transform: rotateZ(45deg); */
+  /* transform: scale(50%, 50%); */
+  /* transform: skewZ(20deg); */
+  /* transform: skew(20deg, 20deg); */
+}
+
+div:hover {
+  background-color: midnightblue;
+}
+
+div:last-child:hover {
+  transform-origin: 120px 160px;
+  transform: rotate(180deg);
+}
+
+/* Animation */
+.animate {
+  animation-name: wow;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 0.5s;
+  animation-iteration-count: 5;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes wow {
+  0% {
+    transform: translate(0);
+  }
+
+  50% {
+    transform: translateX(600px) rotate(180deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}

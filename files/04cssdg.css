@@ -1,0 +1,113 @@
+/*
+
+● Box Model = Content + Padding + Border + Margin
+
+Everything in CSS is a box.
+
+● All elements inherit not only typography but also default margin padding etc., and they are in a specific relation with the root element.
+
+● box-sizing: It mainly has two values: content-box(the sizes given are only applied to content, not border, margin, padding included) and border-box(the sizes given are applied to content + border + margin + padding as total)
+
+
+● margin: margin-top margin-right margin-bottom margin-left;
+
+margin: margin-top-bottom margin-left-right;
+
+
+● Each side of border can also be customized by "border-top/bottom/left/right", and the width and style of the border sides can also be individually customized by "border-width" and "border-style"
+
+border: width style color;
+
+● outline: It is like border but not part of box model, rather it can be interpreted as a floating object that is connected to the border. 
+The distance of it from border can be determined by "outline-offset"
+
+
+● If we put "auto" in the measurement place, it will utilize the left space(if block, it will naturally take the whole width of the screen) equally from all sides related to the measurement place.
+
+
+● border-radius: It helps curving the corners of border. To form a circle, the border-radius should half of the width and height of the element.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.border {
+    /* box-sizing: border-box; */
+    border-top: 2px solid blueviolet;
+    border-bottom: 2px solid blueviolet;
+    border-right: 2px solid blueviolet;
+    border-left: 2px solid blueviolet;
+    border-top-width: 3px;
+    border-bottom-width: 4px;
+    border-right-width: 5px;
+    border-left-width: 6px;
+    border-top-style: groove;
+    border-bottom-style: dotted;
+    border-right-style: ridge;
+    border-left-style: inset;
+    border-top-color: yellow;
+    border-bottom-color: red;
+    border-right-color: green;
+    border-left-color: aqua;
+    margin: 20px auto;
+}

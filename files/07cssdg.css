@@ -1,0 +1,115 @@
+/*
+
+● 'list-style-type' sets the type of order, that is, 1,2,3 or a,b,c etc.
+
+
+● Even if the list style type is set to none, the list items are indented due to default padding.
+
+
+● 'list-style-position' sets whether the list styles will be attached to the list items or stay at the left most corner. Padding, margin etc. is counted with the markers if it is inside positioned and without the markers if it is outside positioned.
+
+
+● 'list-style-image' helps to set an external image as list style.
+
+
+● list-style: type image position;
+In this short hand syntax the type is fallback for image.
+
+
+● '::marker' is a pseudo element that selects the markers of list items. All pseudo elements start with two colons.
+
+
+● 'content' inside the marker pseudo element can be text or any image and the marker will appear as the given content.
+
+
+● The 'start="n"' attribute in "ol" makes the list start from the nth entity of the order type but it can be overridden by the 'value' attribute in 'li' and the following ones follow it.
+
+
+● It is better to use list style images and all that in the ::marker ruleset.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+ol,
+ul {
+  line-height: 1.8;
+  /* line-height is applied to the elements inside selected element of ruleset. */
+}
+
+ol {
+  list-style-type: decimal-leading-zero;
+  text-align: left;
+  list-style-position: outside;
+  /* list-style-position: inside; */
+  color: aqua;
+}
+
+ol li {
+  padding-left: 1px;
+  color: red;
+  /* be it 'ol' or 'ol li' the color is applied to marker+list_item */
+}
+
+ul {
+  color: brown;
+}
+
+ul ::marker {
+  font-family: monospace;
+  color: green;
+  /* The font-family is applied to content. */
+  content: ">> ";
+}

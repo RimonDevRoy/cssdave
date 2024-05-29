@@ -1,0 +1,223 @@
+/*
+
+● 'position: static' is the default for every element.
+
+
+● When we set position of any element, we will have to set atleast one of top, bottom, left or right. The values take the element away form the respective side with the given measurement.
+
+
+● 'position: absolute' positions  the element with respect to the closest ancestor that is positioned "relative", but if it does not it will check for another above ancestor and will continute till it is positioned with respect to the browser screen.
+
+
+● Values of position:
+
+static
+The element is positioned according to the Normal Flow of the document. The top, right, bottom, left, and z-index properties have no effect. This is the default value.
+
+relative
+The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static.
+
+This value creates a new stacking context when the value of z-index is not auto. Its effect on table-*-group, table-row, table-column, table-cell, and table-caption elements is undefined.
+
+absolute
+The element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its closest positioned ancestor (if any) or to the initial containing block. Its final position is determined by the values of top, right, bottom, and left.
+
+This value creates a new stacking context when the value of z-index is not auto. The margins of absolutely positioned boxes do not collapse with other margins.
+
+fixed
+The element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its initial containing block, which is the viewport in the case of visual media. Its final position is determined by the values of top, right, bottom, and left.
+
+This value always creates a new stacking context. In printed documents, the element is placed in the same position on every page.
+
+sticky
+The element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block (nearest block-level ancestor), including table-related elements, based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements.
+
+This value always creates a new stacking context. Note that a sticky element "sticks" to its nearest ancestor that has a "scrolling mechanism" (created when overflow is hidden, scroll, auto, or overlay), even if that ancestor isn't the nearest actually scrolling ancestor.
+
+
+● By default, which element will come on top of other element if positioned is determined by the order of the elements in HTML. The elements that come after are above the former ones. This can be later changed by "z-index".
+
+
+● "z-index" is 0 by default, and the elements with higher z-index is placed over the elements with lesser z-index.
+
+
+● "sticky" will move until it reaches the spot we have defined with the help of top, bottom, left or right. It will stick until it's parent container appears to start moving.
+
+
+● Elements can be made invisible without removing it from the document by positioning them with high values.
+
+
+● Observe what happened due to setting the height of the section / main equal to 100vh.(Veryyyyyy important)
+
+
+● In some cases when position property causes the element to get out of the normal flow of document, it collapses to an inline type element even though it was a block element, and to fix that we have to set the width to 100%.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* This makes the scrolling action smooth. */
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  min-height: 200vh;
+  font-size: 1.5rem;
+}
+
+.outer-container {
+  /* position: relative; */
+  border: 3px dashed black;
+  width: 75vw;
+  height: 85vh;
+  margin: 40px auto;
+}
+
+.inner-container {
+  /* position: relative; */
+  border: 3px solid blue;
+  width: 40vw;
+  height: 50vh;
+  margin: 200px auto;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  color: white;
+  padding: 1rem;
+}
+
+.absolute {
+  position: absolute;
+  background-color: blue;
+  top: 0;
+}
+
+.relative {
+  background-color: red;
+  position: relative;
+  top: 5px;
+}
+
+.fixed {
+  background-color: green;
+  position: fixed;
+  top: 0;
+}
+
+.sticky {
+  background-color: yellow;
+  position: sticky;
+  top: 0;
+}
+
+/* ///////////////////////// */
+
+section {
+  height: 100vh;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+header,
+footer {
+  color: white;
+  text-align: center;
+  height: 100px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  font-size: 5rem;
+}
+
+footer {
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+}
+
+.social {
+  background-color: royalblue;
+  color: white;
+  font-size: inherit;
+  /* It proves that font-size effect the size of emojis as well */
+  padding: 1rem;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 1;
+}
+
+a:visited {
+  color: white;
+}

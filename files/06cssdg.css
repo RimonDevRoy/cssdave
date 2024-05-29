@@ -1,0 +1,112 @@
+/*
+
+● The declarations of typography can also be applied to links.
+
+
+● "cursor" allows to set the behaviour of the cursor when it goes on the element to which it has been applied.
+
+
+● "color" sets the color of the text inside anchor tag before visited in general.
+
+
+● ':visited' pseudo class declares rules for the state when a link is visited.
+
+
+● ':hover' pseudo class declares rules for the state when a link is hovered upon.
+
+
+● ':active' pseudo class declares rules for the state when a link is clicked.
+
+
+● The order of defining styles for different states of link is: link element then visited then (hover, focus)(position interchangeable) then active.
+
+a -> :visited -> :hover / :focus -> :active
+
+● ":focus" is when links are focused using the tab button of keyboard when using screen reader. ":focus-within" is if the element itself or any of its descendent is on focus.
+
+
+● 'opacity' sets the transparency of color.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body {
+    font-family:  Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    cursor: not-allowed;
+    color: rgb(12, 12, 239);
+}
+
+a:visited {
+    color: rgb(255, 189, 23);
+}
+
+
+a:focus {
+    color: rgba(226, 19, 19, 0.775);
+}
+a:hover {
+    /* color: rgba(19, 226, 112, 0.775); */
+    color: rgb(12, 12, 239, 0.8);
+    /* opacity: 0.8; */
+}
+
+a:active {
+    color: rgb(162, 67, 213);
+}

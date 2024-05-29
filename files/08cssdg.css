@@ -1,0 +1,150 @@
+/*
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+nav {
+    border: 2px solid #333;
+    border-radius: 2rem;
+    margin: 0 auto 1rem;
+    max-width: 600px;
+    font-size: 2.5rem;
+    line-height: 5rem;
+}
+
+h2 {
+    padding: 1rem;
+    background-color: gold;
+    border-radius: 2rem 2rem 0 0;
+    /* top-left->top-right->bottom-right->bottom-left */
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    border-top: 1px solid #333;
+}
+
+li a {
+    display: block;
+    /* it made the anchor tag spread into full width */
+}
+
+li a, li a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+li a:hover, li a:focus {
+    background-color: #333;
+    color:whitesmoke;
+    cursor: pointer;
+}
+
+/* li a:last-child {
+    border-radius: 0 0 2rem 2rem;
+} */
+/* It selects the only 'a' inside li becuase it is the only child which also makes it the last child.*/
+
+li:last-child a {
+    border-radius: 0 0 2rem 2rem;
+    /* It only selects the last list item */
+}
+
+::marker {
+    /* list-style-type: none; -> it is only to be applied in 'ul/ol/li'*/
+    /* content: ''; */
+}

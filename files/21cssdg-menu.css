@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+
+● :is(el1, el2, el3, el4,..)
+It selects all of those which are available within the list of selectors passed as argument.
+
+
+● The :is() CSS pseudo-class function takes a selector list as its argument, and selects any element that can be selected by one of the selectors in that list. This is useful for writing large selectors in a more compact form.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+/* ||| Dropdown Menu ||| */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --HEADER-BGCOLOR: #333;
+  --HEADER-COLOR: whitesmoke;
+}
+
+html {
+  font: 1.5rem "Nunito", "Roboto";
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+header {
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+}
+
+/* 
+header-title-line -> section inside header
+menu-button -> button inside section inside header
+menu-icon -> div inside button inside section inside headers
+*/
+
+.header-title-line {
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.menu-button {
+  /* Hitting the tab focuses on buttons, but if it were a div, tab-index would have to be used. */
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* place-content: center; */
+  position: relative;
+}
+
+/* ||| Observe ||| */
+.menu-icon,
+.menu-icon::after,
+.menu-icon::before {
+  background-color: var(--HEADER-COLOR);
+  width: 40px;
+  height: 5px;
+  border-radius: 5px;
+  /* display: flex; */
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.menu-icon::after,
+.menu-icon::before {
+  content: "";
+  /* Without this the after,before elements won't have been visible */
+}
+
+.menu-icon::before {
+  transform: translate(-18px, -12px);
+  /* X is half of width because the origin is at center. */
+  /* transform: translateX(-20px);
+  transform: translateY(-12px); */
+  /* The lower one will override so it won't work */
+}
+
+.menu-icon::after {
+  transform: translate(-22px, 12px);
+  /* X is half of width because the origin is at center. */
+}
+
+:is(header:hover, header:focus-within) .menu-icon {
+  background-color: transparent;
+  /* This bgc made div disappear */
+  transform: rotate(180deg);
+  /* This rotate made the after and before rotate because their position is with respect to the actual element. */
+  /* The :is here made the code like let there either be condition of hover header on header or focus-within on header (or both), go inside the applicable one/ones and select .menu-icon */
+}
+
+:is(header:hover, header:focus-within) .menu-icon::before {
+  transform: translateX(-20px) rotate(45deg);
+  /* transform: rotate(45deg); */
+  /* Without transformX when rotated, it would have been calculated from original position, and as we have already shifted it above by -20px, we have to do it here also otherwise it would appear weird. */
+}
+
+:is(header:hover, header:focus-within) .menu-icon::after {
+  transform: translateX(-20px) rotate(-45deg);
+  /* transform: rotate(-45deg); */
+}
+
+:is(header:hover, header:focus-within) nav {
+  display: block;
+  /* Here, :is states that either only on the state of hovering or focusing within the header, select 'nav' and apply the styles. This is basically the same thing written before, but I am saying this multiple times so that I get it stamped on my head. */
+}
+
+nav {
+  background-color: var(--HEADER-BGCOLOR);
+  display: none;
+  transform-origin: top center;
+  /* Check what happens for not setting the transform-origin. */
+  animation: showMenu 0.5s ease-in-out forwards;
+}
+
+@keyframes showMenu {
+  0% {
+    transform: scaleY(0);
+  }
+
+  70% {
+    transform: scaleY(1.2);
+  }
+  /* It will be noticeable when hovered over the navbar. */
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+nav li {
+  padding: 0.5rem;
+  border-top: 1px solid var(--HEADER-COLOR);
+}
+
+nav a {
+  display: block;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+nav a:any-link {
+  color: var(--HEADER-COLOR);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav :is(a:hover, a:focus) {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+  /* Now figure out what does :is do here. */
+}

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&family=Playpen+Sans:wght@100..800&display=swap');
+
+/*
+
+● Typography is the way by which the styles and everything about text is arranged.
+
+● All the input and other tags except "label" inherit typography declarations
+
+
+● The "text-*" properties are independent from font properties.
+
+
+● "text-decoration" helps to add or remove underline, overline etc decorations to the text.
+
+
+● "text-transform" helps to set capitalize, uppercase, lowercase etc to the content. 'Capitalize' will make the first letter of every word capital.
+
+
+● "text-align" helps to align the text of content. 'justify' will make them uniformly arranged from both sides.
+
+
+● "text-indent" helps to indent the first line of the text of the content.
+
+
+● The reverse properties like "text-align-last" or any other case of styling comes handy in those situations where the normal side becomes opposite of it like when setting the flexbox flex direction opposite, and we want something on the left side but due to flex, normal right side becomes normal thus we have to use "last" to get the desired styling at the left side.
+
+
+● "line-height" helps to set distance between lines.
+
+
+● "letter-spacing" helps to set the distance between letters.
+
+
+● "word-spacing" helps to set the distance between words.
+
+
+● "font-weight" helps to set the boldness of the fonts.
+
+
+● "font-style" helps to set the style of the fonts like italic, oblique(stronger italic) etc.
+
+
+● "font-family" helps to set the family of the fonts.
+
+
+● fallback fonts are those that are kept in backup and when the ones in left are not available, the fallback ones are applied. If font family names have space between them, they will have to be written inside ''.
+
+
+● We can add external fonts by either link tag in HTML or import in CSS. We need to bring all the necessary weights(that will be used in code) of the font or else the browser will interpret the boldness of the used weight in its own way. The import should be put at the top of styling sheet.
+
+
+● The more fonts we bring from google, the more time the page take.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body {
+    padding: 5px;
+    /* font-size: 30px; */
+    font-family: "Jersey 20", "Playpen Sans";
+}
+
+p {
+    padding: 5px;
+}
+
+h1 {
+    letter-spacing: 0.5em;
+    word-spacing: 2em;
+}
+
+p:nth-child(1) {
+    text-transform: capitalize;
+    text-decoration: overline;
+}
+
+p:nth-child(2) {
+    text-transform: uppercase;
+    text-align: justify;
+}
+
+p:nth-child(3) {
+    text-transform: lowercase;
+    text-decoration: line-through;
+    font-size: x-large;
+    font-weight: 900;
+}

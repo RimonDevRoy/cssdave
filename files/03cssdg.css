@@ -1,0 +1,104 @@
+/*
+
+● Mainly two types:
+1. Absolute units: Fixed distance. Example: cm, px, pt etc.
+2. Relative units: Relative with respect to viewport or any reference frame. Example: vw, vh etc.
+
+● Default font-size for HTML document is 16px. If the font-size is not declared in html ruleset, the browser can change the font size when the user changes it in the browser's settings because declaring it means that we are telling that it should be this!
+
+
+● Percentage: They are relative to the available space(usually parent element's space).
+
+
+● rem: They are relative to the font-size of the root element of the document(html)and the f.s can be modified by the browser from its settings. x rem = x * f.s of html ruleset.
+
+● em: They are relative to the font-size of the parent element of the element if they are set and the f.s can be modified by the browser from its settings. x em = x * f.s of parent element's ruleset. If the font-size of the current element is declared by the user, the reference frame is shifted from parent to current element. This is usually used for buttons.
+
+
+● ch: Takes the width of "0". It can be used to set the maximum number of characters per line.
+
+
+● 1vw: 1% of viewport width.
+
+● 1vh: 1% of viewport height.
+
+● 1vmin: 1% of viewport's smaller dimension.
+
+● 1vmax: 1% of viewport's larger dimension.
+
+● vw, vh, vmin, vmax do not count the scrollbars; thus, if a scrollbar exists for vertical view, 100vw will cause a horizontal scrollbar to appear to display the leftout horizontal webpage due to the scrollbar.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+body {
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 2rem;
+    padding: 2em;
+}

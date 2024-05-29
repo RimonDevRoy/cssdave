@@ -1,0 +1,106 @@
+/*
+
+● Block elements take 100% of their available width space. Margin, height etc can be set to it.
+
+
+● Inline elements take only the space required for the content. Margin-top/bottom, height etc. cannot be set to it. If a bigger padding is added to it, it will overlap other elements as if it were floating over others.
+
+
+● Inline-block allows inline elements to have their characteristics with an extra accessibility of being able to set margin-top/bottom, height etc.
+
+
+● Inline-block comes handy when a link is turned into a button.
+
+
+● "margin-inline" sets margin only in right and left direction.
+
+
+● The display property applies to everything that is inside the element which is selected.
+
+
+● display:none causes the element to be removed from the document flow.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+p {
+    background-color: lightgray;
+}
+
+span {
+    display: inline-block;
+    background-color:#333;
+    color:rgb(245, 245, 245);
+    padding: 4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

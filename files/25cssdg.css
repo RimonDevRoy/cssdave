@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+
+● element1 + element2 {} is adjacent selector. It selects the element2.
+
+
+● :has() selects backwards, that is, when it finds the given match, it selects the previous or parent element.
+
+article:has(+ p) {}
+The above ruleset targets the article that has an adjacent 'p', not the 'p' itself.
+
+
+● element:has(el1, el2,..)
+This selects the elements that have atleast one of the given argument.
+This is OR operation.
+
+
+● element:not(:has(el1, el2,...))
+This selects the elements that do not have the el1, el2,..
+
+
+● element:has(el1):has(el2):has(el3)..
+This selects the elements that have all the el1, el2, el3,....
+This is AND operation.
+
+
+● :has takes up the specificity of the highest specifity selector inside it.
+
+
+● A complex example: 
+
+element1:has(el1):has(el2) element2:has(+ el3, el4)
+This selects the 'element2' that has either an adjacent el3 or has a el4 inside(or both) inside those element1's that have el1 and el2 inside them.
+
+
+● Displaying certain things upon completion of something can also be done by the help of this selector.
+
+element:has(el1:checked) {}
+It selects the element that has a checked el1 inside it.
+
+element:has(el:valid)::after {}
+This will add content to 'after' that element that has an 'el' validly filled.
+
+The validity can be set by setting a pattern in the HTML for the 'el'.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", "Roboto";
+  min-height: 100vh;
+}

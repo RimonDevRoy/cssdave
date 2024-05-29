@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+● hsl(), rgb() etc. are color functions.
+
+
+● linear-gradient(), radial-gradient() are functions.
+
+
+● var() is a reference function. It takes the variable given and returns its value.
+
+
+● min(abs_val, rel_val); takes the smallest value given to it. One absolute value is given and a relative value is given so that if the screen size goes below absolute value the size adapts with the relative value.
+Here, we could do an interesting calculation about its working mechanism.
+
+width: min(50vh, 200px);
+In the above example, the width will be at most 200px, but will be smaller if the viewport is less than 400px height (in which case 1vh would be 4px, so 50vh would be 200px). This technique uses an absolute unit to specify a fixed maximum value for the property, and a relative unit to allow the value to shrink to suit smaller viewports. When the relative value becomes smaller than the absolute value, the function will take the relative value. Thus, we can say that the absolute value is the maximum value.
+
+● font: font-size font-family;
+
+
+● max(abs_val, rel_val); is just opposite of min(). It takes the largest of all the given values. When the relative value becomes smaller than the absolute value, the font size will then stay at the absolute value. Thus, it can be said that the absolute value is the minimum it will take.
+
+
+● For both the functions, the absolute value is the highest or lowest possible value.
+
+
+● If two absolute values are given to the functions, it is same as writing one value for the property.
+
+
+● clamp(min_of_max(), val_when_in_between, max_of_min());
+The size will normally be the middle value and won't go lower or higher than min_of_max() and max_of_min() respectively.
+
+
+● 'vh' should be used for relative font-sizes.
+
+
+● hue-rotate(xdeg) It will rotate the color by x degrees in the color wheel.
+
+
+● brightness(x%) will set the given amount of brightness to the element.
+
+
+● "data-given_name" makes a custom attribute for an element.
+
+
+● "attr(attr_name)" returns the value of the attribute of the selected element. It returns nothing if there is no such attribute in the element.
+
+el_name::after {
+  content: attr(data-idiot);
+}
+
+The above code will put the value of the data-idiot attribute of the el_name.
+
+● repeat(), minmax() etc. are grid specific functions. In minmax() if max < min, then max is ignored and minmax(min,max) is treated as min. The minmax(min_val, max_val) function sets the value not less than min_val and not higher than max_val, and the size adjusts according to the webpage size change.
+
+
+● The page start to break/shrink when the elements stop adjusting their size according to the size change.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  /* It will cause the image to not overflow from its container */
+}
+
+/* UTILITY CLASSES */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* GENERAL STYLES */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ||| VARIABLES ||| */
+:root {
+  /* COLORS */
+  --BG-COLOR: #475569;
+  --ALT-COLOR: #1e2938;
+  --RADIAL-COLOR: whitesmoke;
+  --LIGHT-COLOR: whitesmoke;
+  --DARK-COLOR: black;
+
+  /* FONT */
+  --F-F: "Nunito", "Roboto";
+  --F-S-M: min(2.25rem, 3vh);
+  --F-S-SM: clamp(1.25rem, 2vh, 1.75rem);
+  --F-S-XL: max(2rem, 5vh);
+
+  /* SQUARE */
+  --SQUARE-BGCOLOR: papayawhip;
+  --SQUARE-SIZE: max(150px, 20vw);
+
+  /* GENERAL */
+  --PADDING: 0.5em;
+  --SHADOWS: 0 6px 5px -5px var(--DARK-COLOR);
+  /* It is must to specify the dark-color before box-shadows as it uses the former. */
+  --BORDERS: 2px solid var(--DARK-COLOR);
+}
+
+/* GENERAL STYLES */
+body {
+  font: var(--F-S-M) var(--F-F);
+  min-height: 100vh;
+
+  background-color: var(--BG-COLOR);
+  background-image: radial-gradient(var(--RADIAL-COLOR), var(--BG-COLOR));
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+nav,
+footer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: var(--ALT-COLOR);
+  color: var(--LIGHT-COLOR);
+  text-align: center;
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: var(--LIGHT-COLOR);
+  color: var(--DARK-COLOR);
+  border-bottom: var(--BORDERS);
+  box-shadow: var(--SHADOWS);
+}
+
+main {
+  flex-grow: 1;
+  padding: var(--PADDING);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 300px));
+  gap: min(2vw, 20px);
+
+  /* display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start; */
+}
+
+main section {
+  flex-grow: 1;
+  padding: var(--PADDING);
+}
+
+main aside {
+  background-color: hsla(0, 0%, 20%, 0.8);
+  color: var(--LIGHT-COLOR);
+  font-size: var(--F-S-SM);
+  font-style: italic;
+  padding: var(--PADDING);
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.tooltip {
+  border-bottom: 1px dashed orange;
+  /* This can be used to give creative underlines */
+  position: relative;
+}
+
+.tooltip:hover::before {
+  /* This will add content before element when in hover state. */
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -20px;
+  white-space: nowrap;
+  /* Upon making relative position, it gets wrapped. */
+  background-color: var(--DARK-COLOR);
+  padding: var(--PADDING);
+  border-radius: 15px;
+}
+
+footer {
+  bottom: 0;
+}
+
+a:any-link {
+  color: firebrick;
+}
+
+a:hover,
+a:focus {
+  /* filter: brightness(150%); */
+  filter: hue-rotate(180deg);
+}
+
+/* FEATURES */
+
+.square-highlight {
+  --SQUARE-BGCOLOR: blue;
+  /* This overrides the variable only for this class and as the bgc for all squares are set as square-bgcolor, the updation here automatically makes it the color for the element of this class. */
+}
+
+.square {
+  background-color: var(--SQUARE-BGCOLOR);
+  width: var(--SQUARE-SIZE);
+  height: var(--SQUARE-SIZE);
+  border: var(--BORDERS);
+  border-radius: 15px;
+  display: grid;
+  place-content: center;
+  font-size: var(--F-S-XL);
+  box-shadow: var(--SHADOWS);
+}
+
+@media screen and (min-width: 576px) {
+  main {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  main section {
+    width: calc(70% - 5px);
+  }
+
+  main aside {
+    width: calc(30% - 5px);
+  }
+
+  /* Only the styles given here will override the previously declared styles when the media query condition is met. */
+}

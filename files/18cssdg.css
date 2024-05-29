@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+/*
+
+● Pseudo-element: A keyword added to selector that allows to stylize specific parts of the selected element instead of whole. They take two colons before them.
+
+
+● Pseudo-class: A keyword added to the selector that targets a specific state of the selected element. They take one colon before them.
+
+
+● ":link" is state of unvisited link, and ":any-link" is for both visited and non-visited.
+
+
+● We can write:
+
+parent_el :is(chi_el1:pseudo_cl1, chi_el2:pseudo_cl2, chi_el3:pseudo_cl3,..) { code; }
+instead of,
+parent_el chi_el1:pseudo_cl1, parent_el chi_el2:pseudo_cl2, parent_el chi_el3:pseudo_cl3,..{ code; } 
+
+not parent_el:is(), it is parent_el :is()
+
+"is" selector adopts the specificity of the element inside () that has the highest specificity not adding all of theirs.
+
+The "is" selector selects all its parameter as a bunch.
+
+● ":where" is exactly like ":is" but it has 0 specificity.
+
+
+● ":target" is the state when something is selected. 
+
+
+● 'element_name[attribute_name]' selects all the elements that have the given attribute.
+
+
+● :not()
+Different ways:
+
+  <p> elements that don't have a class `.fancy`
+  p:not(.fancy) {
+    color: green;
+  }
+
+  <p> elements that don't have an attribute `fancy`
+  p:not([fancy]) {
+    color: green;
+  }
+  
+  Elements inside 'body' that are not <p> elements
+  body :not(p) {
+    text-decoration: underline;
+  }
+  
+  Elements inside 'body' that are not <div>s or `.fancy`
+  body :not(div):not(.fancy) {
+    font-weight: bold;
+  }
+  
+  Elements inside 'body' that are not <div>s or `.fancy`
+  body :not(div, .fancy) {
+    text-decoration: overline underline;
+  }
+  
+  Elements inside an <h2> that aren't a <span> with a class of `.foo`
+  h2 :not(span.foo) {
+    color: red;
+  }
+
+  Elements that are not <p> although having the class '.wow'
+  .wow:not(p) {
+    code;
+  }
+  
+":not(.foo, .bar)" is equivalent to ":not(.foo):not(.bar)".
+
+
+● el_name:nth-child(n)
+This selects the elements of that given name which is nth in the order of the same elements. The 'n's are according to their order in HTML.
+
+
+● "el_name::before" and "el_name::after" can be used to add some content before and after the element. The content is given in the $ spot in content: '$'; inside the ruleset. The display type of the content can also be set inside the ruleset. The contents are not selectable even though they are text.
+
+Specific values like 'open-quote' and 'close-quote' can also be set to content. This way of making certain things with the help of ::after and ::before is very effective as we do not need to add them in the document.
+
+The relative units used in ::after and ::before are dependent on the element they are being applied to not parent element.
+
+All types of rules can be applied to ::after and ::before just like how we do to normal rulesets.
+
+● "el_name::first-letter/line" targets the first letter/line of the content of the element.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", "Roboto";
+  min-height: 100vh;
+}
+
+:is(p:hover, span:active) {
+  background-color: red;
+}

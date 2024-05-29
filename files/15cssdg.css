@@ -1,0 +1,226 @@
+/*
+
+● It is must to set the width and height of images, so that browser reserves the space in webpage, and cumulative layout shift is maintained.
+
+
+● Although height and width can be set by CSS, it is better to set it in HTML for images to avoid problems in case of failure to load CSS file.
+
+
+● Only write numbers in height and width in HTML for images not px or any units.
+
+
+● The width/height sets automatically if only height/width is set only in the case when they are not defined in HTML.
+
+
+● Images are inline by default. This causes some space under the images, and its display can be made block to remove that space.
+
+
+● We put img tags inside figure tag, and figcaption tags are also needed to be used after img tag for semantic value.
+
+
+● We can make square images turn into circle but not the rectangle ones.
+
+
+● The background images repeat if it does not fillup the whole space. This phenomenon can be controlled by "background-repeat".
+
+
+● background-repeat is applied to the ruleset of the element that has the background image. "repeat-x" and "repeat-y" makes the images repeat towards x and y axis respectively.
+
+
+● If a transparent background image is used, the background color is visible from behind.
+
+
+● "background-size" sets the size of image of background. The property values are:
+
+contain
+Scales the image as large as possible within its container without cropping or stretching the image. If the container is larger than the image, this will result in image tiling(repeat), unless the background-repeat property is set to no-repeat.
+
+cover
+Scales the image (while preserving its ratio) to the smallest possible size to fill the container (that is: both its height and width completely cover the container), leaving no empty space. If the proportions of the background differ from the element, the image is cropped either vertically or horizontally.
+
+auto
+Scales the background image in the corresponding direction such that its intrinsic proportions are maintained.
+
+<length>
+Stretches the image in the corresponding dimension to the specified length. Negative values are not allowed.
+
+<percentage>
+Stretches the image in the corresponding dimension to the specified percentage of the background positioning area. The background positioning area is determined by the value of background-origin (by default, the padding box). However, if the background's background-attachment value is fixed, the positioning area is instead the entire viewport. Negative values are not allowed.
+
+● "text-shadow" can be added to add shadow to text of an element. Syntax:
+
+offset-x | offset-y | blur-radius | color 
+text-shadow: 1px 1px 2px black;
+
+color | offset-x | offset-y | blur-radius 
+text-shadow: #fc0 1px 0 10px;
+
+offset-x | offset-y | color 
+text-shadow: 5px 5px #558cbb;
+
+color | offset-x | offset-y 
+text-shadow: white 2px 5px;
+
+offset-x | offset-y
+
+Multiple shadows can also be applied by the following way:
+
+text-shadow: 1px 1px 2px white, 0 0 1em blue, 0 0 0.2em red,...;
+
+● If some background image is applied to a parent container, and the background of child element is made transparent then the applied image of parent can be seen through. 
+
+
+● "background-position" sets which portion of the background should be visible. It is advisable to declare it below background-repeat.
+
+background-position: top/bottom left/right;
+
+
+● "linear-gradient" can be used to apply color transition. Syntax:
+
+linear-gradient(to top/bottom/left/right, color1, color2, color3,...);
+
+color1 -> color2 -> color3 -> ...
+
+● roboto, nunito are good fonts.
+
+
+● When prefixes are used, it is advisable to use the standard form also for compatibility.
+
+
+● To show an image through text, the following trick can be used.
+
+-webkit-background-clip: text;
+background-clip: text;
+color: rgb(0, 0, 0, 0);
+or,
+color: transparent;
+
+
+● background: background-repeat background-position background-image, background-repeat background-position background-image,..
+
+This way many images can be added, and to add linear-gradient we just need background-repeat and write gradient after that.
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+
+● 
+
+*/
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+/* Reset */
+
+/* Utility classes */
+.nowrap {
+  white-space: nowrap;
+  /* All the elements that need to stay unwrapped can be given class of nowrap and applied nowrap. */
+}
+
+.offscreen {
+  position: relative;
+  left: -10000px;
+}
+
+/* Utility classes */
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: aliceblue;
+  background-image: radial-gradient(red, green, blue);
+  /* This adds image as well as gradient. */
+  background-repeat: repeat-y;
+  background-position: top right;
+  /* This takes the image to the given position */
+  /* background-size: 100px 80px; */
+  background-size: 100%;
+  /* background-size: width height */
+}
+
+.example {
+  margin-top: 1rem;
+  padding-left: 20px;
+  border: 2px solid black;
+}
+
+.example img {
+  width: 40%;
+  height: auto;
+}
+
+.container {
+  background-image: url("./img/kyle-vaughn-i3ka9q7EhH8-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero {
+  border-bottom: 2px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+
+  background-color: rgba(163, 152, 138, 0.45);
+}
+
+h1 {
+  font-size: 500%;
+  /* color: white; */
+  text-shadow: 2px 2px 5px white;
+}
+
+.pic-figure {
+  width: 30%;
+}
+
+.pic-figure img {
+  width: 100%;
+  height: auto;
+  min-width: 100px;
+  border: 5px double gray;
+  border-radius: 50%;
+}
+
+.clip {
+  font-weight: 800;
+  font-size: 15rem;
+  text-align: center;
+  background-image: url("./img/yuri-krupenin-qB-MKKLRwBc-unsplash.jpg");
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-position: bottom right;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: rgb(0, 0, 0, 0);
+  text-transform: uppercase;
+}
